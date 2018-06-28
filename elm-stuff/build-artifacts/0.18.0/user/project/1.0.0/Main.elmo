@@ -1,0 +1,1728 @@
+var _user$project$Main$convertNumberToBinary = F2(
+	function (number, binaryNumber) {
+		convertNumberToBinary:
+		while (true) {
+			if (_elm_lang$core$Native_Utils.eq(
+				_elm_lang$core$Basics$floor(
+					_elm_lang$core$Basics$toFloat(number) / 2),
+				0)) {
+				var remainder = A2(_elm_lang$core$Basics_ops['%'], number, 2);
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					binaryNumber,
+					_elm_lang$core$Basics$toString(remainder));
+			} else {
+				var quotient = _elm_lang$core$Basics$floor(
+					_elm_lang$core$Basics$toFloat(number) / 2);
+				var remainder = A2(_elm_lang$core$Basics_ops['%'], number, 2);
+				var _v0 = quotient,
+					_v1 = A2(
+					_elm_lang$core$Basics_ops['++'],
+					binaryNumber,
+					_elm_lang$core$Basics$toString(remainder));
+				number = _v0;
+				binaryNumber = _v1;
+				continue convertNumberToBinary;
+			}
+		}
+	});
+var _user$project$Main$findCountryCapitalOrViseVersa = function (value) {
+	return A2(
+		_elm_lang$core$List$foldr,
+		F2(
+			function (_p0, acc) {
+				var _p1 = _p0;
+				var _p3 = _p1._0;
+				var _p2 = _p1._1;
+				return _elm_lang$core$Native_Utils.eq(
+					_elm_lang$core$String$toLower(_p3),
+					_elm_lang$core$String$toLower(value)) ? A2(_elm_lang$core$Basics_ops['++'], 'Country capital is: ', _p2) : (_elm_lang$core$Native_Utils.eq(
+					_elm_lang$core$String$toLower(_p2),
+					_elm_lang$core$String$toLower(value)) ? A2(_elm_lang$core$Basics_ops['++'], 'Capital country is: ', _p3) : acc);
+			}),
+		'');
+};
+var _user$project$Main$checkIfNumberIsArmstrongNumber = function (number) {
+	var sumOfDigits = _elm_lang$core$List$sum(
+		A2(
+			_elm_lang$core$List$map,
+			function (n) {
+				return Math.pow(
+					A2(
+						_elm_lang$core$Result$withDefault,
+						0,
+						_elm_lang$core$String$toInt(
+							_elm_lang$core$String$fromChar(n))),
+					_elm_lang$core$String$length(
+						_elm_lang$core$Basics$toString(number)));
+			},
+			_elm_lang$core$String$toList(
+				_elm_lang$core$Basics$toString(number))));
+	return _elm_lang$core$Native_Utils.eq(number, sumOfDigits) ? true : false;
+};
+var _user$project$Main$printRactangle = F2(
+	function (maxLength, value) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('ractangle-block'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: (_elm_lang$core$Native_Utils.cmp(
+					maxLength,
+					_elm_lang$core$String$length(value)) > 0) ? _elm_lang$html$Html$text(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'*',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							A3(
+								_elm_lang$core$String$padRight,
+								maxLength,
+								_elm_lang$core$Native_Utils.chr('*'),
+								value),
+							A2(_elm_lang$core$Basics_ops['++'], '*', '\n')))) : _elm_lang$html$Html$text(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'*',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							A2(_elm_lang$core$Basics_ops['++'], value, '\n'),
+							'*'))),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Main$printFibonacciSeries = F5(
+	function (number1, number2, counter, upTo, series) {
+		printFibonacciSeries:
+		while (true) {
+			var seriesNumber = number1 + number2;
+			if ((_elm_lang$core$Native_Utils.cmp(upTo, 1) < 0) || _elm_lang$core$Native_Utils.eq(counter, upTo)) {
+				return series;
+			} else {
+				var _v3 = number2,
+					_v4 = seriesNumber,
+					_v5 = counter + 1,
+					_v6 = upTo,
+					_v7 = A2(
+					_elm_lang$core$Basics_ops['++'],
+					series,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						' ',
+						_elm_lang$core$Basics$toString(seriesNumber)));
+				number1 = _v3;
+				number2 = _v4;
+				counter = _v5;
+				upTo = _v6;
+				series = _v7;
+				continue printFibonacciSeries;
+			}
+		}
+	});
+var _user$project$Main$mapAlterNateListElements = F4(
+	function (counter, listA, listB, outputList) {
+		mapAlterNateListElements:
+		while (true) {
+			var newList = {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$core$Maybe$withDefault,
+					'',
+					A2(_elm_lang$core$Array$get, counter, listB)),
+				_1: outputList
+			};
+			var newList1 = {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$core$Maybe$withDefault,
+					'',
+					A2(_elm_lang$core$Array$get, counter, listA)),
+				_1: newList
+			};
+			var _p4 = counter;
+			if (_p4 === 0) {
+				return newList1;
+			} else {
+				var _v9 = counter - 1,
+					_v10 = listA,
+					_v11 = listB,
+					_v12 = newList1;
+				counter = _v9;
+				listA = _v10;
+				listB = _v11;
+				outputList = _v12;
+				continue mapAlterNateListElements;
+			}
+		}
+	});
+var _user$project$Main$getLargestNumberFromList = function (list) {
+	var element = A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		_elm_lang$core$List$maximum(list));
+	return element;
+};
+var _user$project$Main$getNumberOfLeapYears = F4(
+	function (year, counter, upto, output) {
+		getNumberOfLeapYears:
+		while (true) {
+			if (_elm_lang$core$Native_Utils.eq(counter, upto)) {
+				return output;
+			} else {
+				if ((_elm_lang$core$Native_Utils.eq(
+					A2(_elm_lang$core$Basics_ops['%'], year, 4),
+					0) && (!_elm_lang$core$Native_Utils.eq(
+					A2(_elm_lang$core$Basics_ops['%'], year, 100),
+					0))) || _elm_lang$core$Native_Utils.eq(
+					A2(_elm_lang$core$Basics_ops['%'], year, 400),
+					0)) {
+					var leapYaers = function () {
+						var _p5 = output;
+						if (_p5 === '') {
+							return _elm_lang$core$Basics$toString(year);
+						} else {
+							return A2(
+								_elm_lang$core$Basics_ops['++'],
+								output,
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									', ',
+									_elm_lang$core$Basics$toString(year)));
+						}
+					}();
+					var _v14 = year + 1,
+						_v15 = counter + 1,
+						_v16 = upto,
+						_v17 = leapYaers;
+					year = _v14;
+					counter = _v15;
+					upto = _v16;
+					output = _v17;
+					continue getNumberOfLeapYears;
+				} else {
+					var _v18 = year + 1,
+						_v19 = counter,
+						_v20 = upto,
+						_v21 = output;
+					year = _v18;
+					counter = _v19;
+					upto = _v20;
+					output = _v21;
+					continue getNumberOfLeapYears;
+				}
+			}
+		}
+	});
+var _user$project$Main$calculateMaxValue = F2(
+	function (maxValue, length) {
+		return (_elm_lang$core$Native_Utils.cmp(maxValue, length) > 0) ? maxValue : length;
+	});
+var _user$project$Main$swapElements = F3(
+	function (start, end, arrayObj) {
+		swapElements:
+		while (true) {
+			if (_elm_lang$core$Native_Utils.eq(start, end)) {
+				return arrayObj;
+			} else {
+				var newValue = A2(
+					_elm_lang$core$Maybe$withDefault,
+					0,
+					A2(_elm_lang$core$Array$get, start + 1, arrayObj));
+				var oldValue = A2(
+					_elm_lang$core$Maybe$withDefault,
+					0,
+					A2(_elm_lang$core$Array$get, start, arrayObj));
+				var _v22 = start + 1,
+					_v23 = end,
+					_v24 = A3(
+					_elm_lang$core$Array$set,
+					start + 1,
+					oldValue,
+					A3(_elm_lang$core$Array$set, start, newValue, arrayObj));
+				start = _v22;
+				end = _v23;
+				arrayObj = _v24;
+				continue swapElements;
+			}
+		}
+	});
+var _user$project$Main$rotateAListForKthTimes = F3(
+	function (start, rotation, listObj) {
+		rotateAListForKthTimes:
+		while (true) {
+			if (_elm_lang$core$Native_Utils.eq(start, rotation)) {
+				return _elm_lang$core$Array$toList(listObj);
+			} else {
+				var _v25 = start + 1,
+					_v26 = rotation,
+					_v27 = A3(
+					_user$project$Main$swapElements,
+					0,
+					_elm_lang$core$Array$length(listObj) - 1,
+					listObj);
+				start = _v25;
+				rotation = _v26;
+				listObj = _v27;
+				continue rotateAListForKthTimes;
+			}
+		}
+	});
+var _user$project$Main$getElementAt = F2(
+	function (listOfArray, position) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			'',
+			A2(_elm_lang$core$Array$get, position, listOfArray));
+	});
+var _user$project$Main$getMaxLengthFromArrayOfString = F3(
+	function (array, position, maxValue) {
+		getMaxLengthFromArrayOfString:
+		while (true) {
+			if (_elm_lang$core$Native_Utils.eq(
+				position,
+				_elm_lang$core$Array$length(array) - 1)) {
+				return A2(
+					_user$project$Main$calculateMaxValue,
+					maxValue,
+					_elm_lang$core$String$length(
+						A2(_user$project$Main$getElementAt, array, position)));
+			} else {
+				var length = A2(
+					_user$project$Main$calculateMaxValue,
+					maxValue,
+					_elm_lang$core$String$length(
+						A2(_user$project$Main$getElementAt, array, position + 1)));
+				var _v28 = array,
+					_v29 = position + 1,
+					_v30 = length;
+				array = _v28;
+				position = _v29;
+				maxValue = _v30;
+				continue getMaxLengthFromArrayOfString;
+			}
+		}
+	});
+var _user$project$Main$convertCommaSeperatedStringToListOfInt = function (values) {
+	var listOfString = A2(_elm_lang$core$String$split, ',', values);
+	var listOfIntegers = A2(
+		_elm_lang$core$List$map,
+		function (value) {
+			return A2(
+				_elm_lang$core$Result$withDefault,
+				0,
+				_elm_lang$core$String$toInt(value));
+		},
+		listOfString);
+	return listOfIntegers;
+};
+var _user$project$Main$capitalCountries = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'Afghanistan', _1: 'Kabul'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'Albania', _1: 'Tirana'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'Algeria', _1: 'Algiers'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'Andorra', _1: 'Andorra la Vella'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'Angola', _1: 'Luanda'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'Antigua and Barbuda', _1: 'Saint John\'s'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'Argentina', _1: 'Buenos Aires'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'Armenia', _1: 'Yerevan'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'Australia', _1: 'Canberra'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'Austria', _1: 'Vienna'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'Azerbaijan', _1: 'Baku'},
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Main$listOfElements = {
+	ctor: '::',
+	_0: '1',
+	_1: {
+		ctor: '::',
+		_0: '2',
+		_1: {
+			ctor: '::',
+			_0: '3',
+			_1: {
+				ctor: '::',
+				_0: '4',
+				_1: {ctor: '[]'}
+			}
+		}
+	}
+};
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p6 = msg;
+		switch (_p6.ctor) {
+			case 'SetYear':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						year: A2(
+							_elm_lang$core$Result$withDefault,
+							0,
+							_elm_lang$core$String$toInt(_p6._0))
+					});
+			case 'SetListValues':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{enteredListToFindLargestNumber: _p6._0});
+			case 'SetRuningListSumValues':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{enteredListToGetSum: _p6._0});
+			case 'SetRuningListSumOrProductValues':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{enteredListToGetSumOrProduct: _p6._0});
+			case 'SetEnterdListForSorting':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{enterdListForSorting: _p6._0});
+			case 'SetRotatedList':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{enterdRotationList: _p6._0});
+			case 'SetRotationTime':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						rotationTimes: A2(
+							_elm_lang$core$Result$withDefault,
+							0,
+							_elm_lang$core$String$toInt(_p6._0))
+					});
+			case 'FindElementOccuranceInsideList':
+				var _p7 = _p6._0;
+				var isMember = A2(_elm_lang$core$List$member, _p7, _user$project$Main$listOfElements);
+				return isMember ? _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						findItemResult: A2(_elm_lang$core$Basics_ops['++'], _p7, ' Elemnt Found!')
+					}) : _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						findItemResult: A2(_elm_lang$core$Basics_ops['++'], _p7, ' Elemnt Not Found!')
+					});
+			case 'GetLeapYears':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						leapYears: _elm_lang$core$Basics$toString(
+							A4(_user$project$Main$getNumberOfLeapYears, model.year, 0, 20, ''))
+					});
+			case 'FindLargestNumber':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						largestNumber: _user$project$Main$getLargestNumberFromList(
+							_user$project$Main$convertCommaSeperatedStringToListOfInt(model.enteredListToFindLargestNumber))
+					});
+			case 'TakeNumberAndReturnListOfDigits':
+				var _p8 = _p6._0;
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						digits: _p8,
+						digitsList: _elm_lang$core$Basics$toString(
+							A2(
+								_elm_lang$core$List$map,
+								function (val) {
+									return A2(
+										_elm_lang$core$Result$withDefault,
+										0,
+										_elm_lang$core$String$toInt(val));
+								},
+								A2(
+									_elm_lang$core$List$map,
+									function ($char) {
+										return _elm_lang$core$String$fromChar($char);
+									},
+									_elm_lang$core$String$toList(_p8))))
+					});
+			case 'CalculateSumOfList':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						sumOfList: _elm_lang$core$List$sum(
+							_user$project$Main$convertCommaSeperatedStringToListOfInt(model.enteredListToGetSum))
+					});
+			case 'CalculateSumOrProductOfList':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						sumOrProductOfList: _p6._0 ? _elm_lang$core$List$product(
+							_user$project$Main$convertCommaSeperatedStringToListOfInt(model.enteredListToGetSumOrProduct)) : _elm_lang$core$List$sum(
+							_user$project$Main$convertCommaSeperatedStringToListOfInt(model.enteredListToGetSumOrProduct))
+					});
+			case 'SortList':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						sortedList: _elm_lang$core$List$sort(
+							_user$project$Main$convertCommaSeperatedStringToListOfInt(model.enterdListForSorting))
+					});
+			case 'CombinedList':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						combinedFlatternList: A2(
+							_elm_lang$core$List$map,
+							function (val) {
+								return A2(
+									_elm_lang$core$Result$withDefault,
+									0,
+									_elm_lang$core$String$toInt(
+										_elm_lang$core$Basics$toString(val)));
+							},
+							_elm_lang$core$List$concat(
+								{
+									ctor: '::',
+									_0: {
+										ctor: '::',
+										_0: 1,
+										_1: {ctor: '[]'}
+									},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '::',
+											_0: 2,
+											_1: {
+												ctor: '::',
+												_0: 3,
+												_1: {
+													ctor: '::',
+													_0: 4,
+													_1: {ctor: '[]'}
+												}
+											}
+										},
+										_1: {
+											ctor: '::',
+											_0: {
+												ctor: '::',
+												_0: 5,
+												_1: {ctor: '[]'}
+											},
+											_1: {
+												ctor: '::',
+												_0: {
+													ctor: '::',
+													_0: 6,
+													_1: {ctor: '[]'}
+												},
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}))
+					});
+			case 'MapAlterNateItems':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						mapedAlterNateItemsList: A4(
+							_user$project$Main$mapAlterNateListElements,
+							2,
+							_elm_lang$core$Array$fromList(
+								{
+									ctor: '::',
+									_0: 'a',
+									_1: {
+										ctor: '::',
+										_0: 'c',
+										_1: {
+											ctor: '::',
+											_0: 'e',
+											_1: {ctor: '[]'}
+										}
+									}
+								}),
+							_elm_lang$core$Array$fromList(
+								{
+									ctor: '::',
+									_0: 'b',
+									_1: {
+										ctor: '::',
+										_0: 'd',
+										_1: {
+											ctor: '::',
+											_0: 'f',
+											_1: {ctor: '[]'}
+										}
+									}
+								}),
+							{ctor: '[]'})
+					});
+			case 'MergeTwoSortedListIntoOne':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						mergedSortedList: _elm_lang$core$List$sort(
+							A2(
+								_elm_lang$core$List$map,
+								function (val) {
+									return A2(
+										_elm_lang$core$Result$withDefault,
+										0,
+										_elm_lang$core$String$toInt(
+											_elm_lang$core$Basics$toString(val)));
+								},
+								A2(
+									_elm_lang$core$List$append,
+									{
+										ctor: '::',
+										_0: 1,
+										_1: {
+											ctor: '::',
+											_0: 4,
+											_1: {
+												ctor: '::',
+												_0: 6,
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{
+										ctor: '::',
+										_0: 2,
+										_1: {
+											ctor: '::',
+											_0: 3,
+											_1: {
+												ctor: '::',
+												_0: 5,
+												_1: {ctor: '[]'}
+											}
+										}
+									})))
+					});
+			case 'RotateListKthTimes':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						swapedList: A3(
+							_user$project$Main$rotateAListForKthTimes,
+							0,
+							model.rotationTimes,
+							_elm_lang$core$Array$fromList(
+								_user$project$Main$convertCommaSeperatedStringToListOfInt(model.enterdRotationList)))
+					});
+			case 'PrintFibonacciSeries':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						fibonacciSeries: A5(
+							_user$project$Main$printFibonacciSeries,
+							0,
+							1,
+							0,
+							A2(
+								_elm_lang$core$Result$withDefault,
+								0,
+								_elm_lang$core$String$toInt(_p6._0)),
+							'0 1')
+					});
+			case 'CheckArmstrongNumber':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						isNumberArmstrong: _user$project$Main$checkIfNumberIsArmstrongNumber(
+							A2(
+								_elm_lang$core$Result$withDefault,
+								0,
+								_elm_lang$core$String$toInt(_p6._0)))
+					});
+			case 'FindCapitalOrCountry':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						capitalOrCountry: A2(
+							_user$project$Main$findCountryCapitalOrViseVersa,
+							_p6._0,
+							_elm_lang$core$Dict$toList(_user$project$Main$capitalCountries))
+					});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						binaryConversion: _elm_lang$core$String$reverse(
+							A2(
+								_user$project$Main$convertNumberToBinary,
+								A2(
+									_elm_lang$core$Result$withDefault,
+									0,
+									_elm_lang$core$String$toInt(_p6._0)),
+								''))
+					});
+		}
+	});
+var _user$project$Main$model = {
+	list: _elm_lang$core$Basics$toString(_user$project$Main$listOfElements),
+	serachTerm: '',
+	findItemResult: '',
+	leapYears: '',
+	year: 0,
+	enteredListToFindLargestNumber: '',
+	largestNumber: 0,
+	digits: '',
+	digitsList: '',
+	enteredListToGetSum: '',
+	sumOfList: 0,
+	enteredListToGetSumOrProduct: '',
+	sumOrProductOfList: 0,
+	enterdListForSorting: '',
+	sortedList: {ctor: '[]'},
+	combinedFlatternList: {ctor: '[]'},
+	mapedAlterNateItemsList: {ctor: '[]'},
+	mergedSortedList: {ctor: '[]'},
+	enterdRotationList: '',
+	rotationTimes: 0,
+	swapedList: {ctor: '[]'},
+	fibonacciSeries: '',
+	isNumberArmstrong: false,
+	capitalOrCountry: '',
+	binaryConversion: ''
+};
+var _user$project$Main$Model = function (a) {
+	return function (b) {
+		return function (c) {
+			return function (d) {
+				return function (e) {
+					return function (f) {
+						return function (g) {
+							return function (h) {
+								return function (i) {
+									return function (j) {
+										return function (k) {
+											return function (l) {
+												return function (m) {
+													return function (n) {
+														return function (o) {
+															return function (p) {
+																return function (q) {
+																	return function (r) {
+																		return function (s) {
+																			return function (t) {
+																				return function (u) {
+																					return function (v) {
+																						return function (w) {
+																							return function (x) {
+																								return function (y) {
+																									return {list: a, serachTerm: b, findItemResult: c, leapYears: d, year: e, enteredListToFindLargestNumber: f, largestNumber: g, digits: h, digitsList: i, enteredListToGetSum: j, sumOfList: k, enteredListToGetSumOrProduct: l, sumOrProductOfList: m, enterdListForSorting: n, sortedList: o, combinedFlatternList: p, mapedAlterNateItemsList: q, mergedSortedList: r, enterdRotationList: s, rotationTimes: t, swapedList: u, fibonacciSeries: v, isNumberArmstrong: w, capitalOrCountry: x, binaryConversion: y};
+																								};
+																							};
+																						};
+																					};
+																				};
+																			};
+																		};
+																	};
+																};
+															};
+														};
+													};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+var _user$project$Main$ConvertBaseToBinary = function (a) {
+	return {ctor: 'ConvertBaseToBinary', _0: a};
+};
+var _user$project$Main$FindCapitalOrCountry = function (a) {
+	return {ctor: 'FindCapitalOrCountry', _0: a};
+};
+var _user$project$Main$CheckArmstrongNumber = function (a) {
+	return {ctor: 'CheckArmstrongNumber', _0: a};
+};
+var _user$project$Main$PrintFibonacciSeries = function (a) {
+	return {ctor: 'PrintFibonacciSeries', _0: a};
+};
+var _user$project$Main$RotateListKthTimes = {ctor: 'RotateListKthTimes'};
+var _user$project$Main$MergeTwoSortedListIntoOne = {ctor: 'MergeTwoSortedListIntoOne'};
+var _user$project$Main$MapAlterNateItems = {ctor: 'MapAlterNateItems'};
+var _user$project$Main$CombinedList = {ctor: 'CombinedList'};
+var _user$project$Main$SortList = {ctor: 'SortList'};
+var _user$project$Main$CalculateSumOfList = {ctor: 'CalculateSumOfList'};
+var _user$project$Main$CalculateSumOrProductOfList = function (a) {
+	return {ctor: 'CalculateSumOrProductOfList', _0: a};
+};
+var _user$project$Main$TakeNumberAndReturnListOfDigits = function (a) {
+	return {ctor: 'TakeNumberAndReturnListOfDigits', _0: a};
+};
+var _user$project$Main$FindElementOccuranceInsideList = function (a) {
+	return {ctor: 'FindElementOccuranceInsideList', _0: a};
+};
+var _user$project$Main$FindLargestNumber = {ctor: 'FindLargestNumber'};
+var _user$project$Main$GetLeapYears = {ctor: 'GetLeapYears'};
+var _user$project$Main$SetRotationTime = function (a) {
+	return {ctor: 'SetRotationTime', _0: a};
+};
+var _user$project$Main$SetRotatedList = function (a) {
+	return {ctor: 'SetRotatedList', _0: a};
+};
+var _user$project$Main$SetEnterdListForSorting = function (a) {
+	return {ctor: 'SetEnterdListForSorting', _0: a};
+};
+var _user$project$Main$SetRuningListSumOrProductValues = function (a) {
+	return {ctor: 'SetRuningListSumOrProductValues', _0: a};
+};
+var _user$project$Main$SetRuningListSumValues = function (a) {
+	return {ctor: 'SetRuningListSumValues', _0: a};
+};
+var _user$project$Main$SetListValues = function (a) {
+	return {ctor: 'SetListValues', _0: a};
+};
+var _user$project$Main$SetYear = function (a) {
+	return {ctor: 'SetYear', _0: a};
+};
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h2,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						A2(_elm_lang$core$Basics_ops['++'], model.list, ' Find the elements from the list')),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$br,
+					{ctor: '[]'},
+					{ctor: '[]'}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$input,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$placeholder('Find elemnet occurance inside List'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$FindElementOccuranceInsideList),
+								_1: {ctor: '[]'}
+							}
+						},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(model.findItemResult),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$br,
+								{ctor: '[]'},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$h2,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												'Start year ',
+												_elm_lang$core$Basics$toString(model.year))),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$input,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$placeholder('Enter the year'),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetYear),
+												_1: {ctor: '[]'}
+											}
+										},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$button,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$GetLeapYears),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('GetLeapYears'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$div,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text(model.leapYears),
+													_1: {ctor: '[]'}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$br,
+													{ctor: '[]'},
+													{ctor: '[]'}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$h2,
+														{ctor: '[]'},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text(
+																A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	'Enterd List is [',
+																	A2(_elm_lang$core$Basics_ops['++'], model.enteredListToGetSumOrProduct, ']'))),
+															_1: {ctor: '[]'}
+														}),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$input,
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$placeholder('Enter comma seprated number list'),
+																_1: {
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetRuningListSumOrProductValues),
+																	_1: {ctor: '[]'}
+																}
+															},
+															{ctor: '[]'}),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$button,
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Events$onClick(
+																		_user$project$Main$CalculateSumOrProductOfList(false)),
+																	_1: {ctor: '[]'}
+																},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text('Calculate Sum Of List'),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_elm_lang$html$Html$button,
+																	{
+																		ctor: '::',
+																		_0: _elm_lang$html$Html_Events$onClick(
+																			_user$project$Main$CalculateSumOrProductOfList(true)),
+																		_1: {ctor: '[]'}
+																	},
+																	{
+																		ctor: '::',
+																		_0: _elm_lang$html$Html$text('Calculate Product Of List'),
+																		_1: {ctor: '[]'}
+																	}),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_elm_lang$html$Html$div,
+																		{ctor: '[]'},
+																		{
+																			ctor: '::',
+																			_0: _elm_lang$html$Html$text(
+																				_elm_lang$core$Basics$toString(model.sumOrProductOfList)),
+																			_1: {ctor: '[]'}
+																		}),
+																	_1: {
+																		ctor: '::',
+																		_0: A2(
+																			_elm_lang$html$Html$br,
+																			{ctor: '[]'},
+																			{ctor: '[]'}),
+																		_1: {
+																			ctor: '::',
+																			_0: A2(
+																				_elm_lang$html$Html$h2,
+																				{ctor: '[]'},
+																				{
+																					ctor: '::',
+																					_0: _elm_lang$html$Html$text(
+																						A2(
+																							_elm_lang$core$Basics_ops['++'],
+																							'Find Largest Number From [',
+																							A2(_elm_lang$core$Basics_ops['++'], model.enteredListToFindLargestNumber, ']'))),
+																					_1: {ctor: '[]'}
+																				}),
+																			_1: {
+																				ctor: '::',
+																				_0: A2(
+																					_elm_lang$html$Html$input,
+																					{
+																						ctor: '::',
+																						_0: _elm_lang$html$Html_Attributes$placeholder('Enter the year'),
+																						_1: {
+																							ctor: '::',
+																							_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetListValues),
+																							_1: {ctor: '[]'}
+																						}
+																					},
+																					{ctor: '[]'}),
+																				_1: {
+																					ctor: '::',
+																					_0: A2(
+																						_elm_lang$html$Html$button,
+																						{
+																							ctor: '::',
+																							_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$FindLargestNumber),
+																							_1: {ctor: '[]'}
+																						},
+																						{
+																							ctor: '::',
+																							_0: _elm_lang$html$Html$text('Find Largest Number'),
+																							_1: {ctor: '[]'}
+																						}),
+																					_1: {
+																						ctor: '::',
+																						_0: A2(
+																							_elm_lang$html$Html$div,
+																							{ctor: '[]'},
+																							{
+																								ctor: '::',
+																								_0: _elm_lang$html$Html$text(
+																									_elm_lang$core$Basics$toString(model.largestNumber)),
+																								_1: {ctor: '[]'}
+																							}),
+																						_1: {
+																							ctor: '::',
+																							_0: A2(
+																								_elm_lang$html$Html$br,
+																								{ctor: '[]'},
+																								{ctor: '[]'}),
+																							_1: {
+																								ctor: '::',
+																								_0: A2(
+																									_elm_lang$html$Html$h2,
+																									{ctor: '[]'},
+																									{
+																										ctor: '::',
+																										_0: _elm_lang$html$Html$text(
+																											A2(_elm_lang$core$Basics_ops['++'], 'Convert Entered to digits list. Entered number is: ', model.digits)),
+																										_1: {ctor: '[]'}
+																									}),
+																								_1: {
+																									ctor: '::',
+																									_0: A2(
+																										_elm_lang$html$Html$input,
+																										{
+																											ctor: '::',
+																											_0: _elm_lang$html$Html_Attributes$placeholder('Enter number'),
+																											_1: {
+																												ctor: '::',
+																												_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$TakeNumberAndReturnListOfDigits),
+																												_1: {ctor: '[]'}
+																											}
+																										},
+																										{ctor: '[]'}),
+																									_1: {
+																										ctor: '::',
+																										_0: A2(
+																											_elm_lang$html$Html$div,
+																											{ctor: '[]'},
+																											{
+																												ctor: '::',
+																												_0: _elm_lang$html$Html$text(
+																													_elm_lang$core$Basics$toString(model.digitsList)),
+																												_1: {ctor: '[]'}
+																											}),
+																										_1: {
+																											ctor: '::',
+																											_0: A2(
+																												_elm_lang$html$Html$br,
+																												{ctor: '[]'},
+																												{ctor: '[]'}),
+																											_1: {
+																												ctor: '::',
+																												_0: A2(
+																													_elm_lang$html$Html$h2,
+																													{ctor: '[]'},
+																													{
+																														ctor: '::',
+																														_0: _elm_lang$html$Html$text(
+																															A2(
+																																_elm_lang$core$Basics_ops['++'],
+																																'Enterd List is [',
+																																A2(_elm_lang$core$Basics_ops['++'], model.enteredListToGetSum, ']'))),
+																														_1: {ctor: '[]'}
+																													}),
+																												_1: {
+																													ctor: '::',
+																													_0: A2(
+																														_elm_lang$html$Html$input,
+																														{
+																															ctor: '::',
+																															_0: _elm_lang$html$Html_Attributes$placeholder('Enter comma seprated number list'),
+																															_1: {
+																																ctor: '::',
+																																_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetRuningListSumValues),
+																																_1: {ctor: '[]'}
+																															}
+																														},
+																														{ctor: '[]'}),
+																													_1: {
+																														ctor: '::',
+																														_0: A2(
+																															_elm_lang$html$Html$button,
+																															{
+																																ctor: '::',
+																																_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$CalculateSumOfList),
+																																_1: {ctor: '[]'}
+																															},
+																															{
+																																ctor: '::',
+																																_0: _elm_lang$html$Html$text('Calculate Sum Of List'),
+																																_1: {ctor: '[]'}
+																															}),
+																														_1: {
+																															ctor: '::',
+																															_0: A2(
+																																_elm_lang$html$Html$div,
+																																{ctor: '[]'},
+																																{
+																																	ctor: '::',
+																																	_0: _elm_lang$html$Html$text(
+																																		_elm_lang$core$Basics$toString(model.sumOfList)),
+																																	_1: {ctor: '[]'}
+																																}),
+																															_1: {
+																																ctor: '::',
+																																_0: A2(
+																																	_elm_lang$html$Html$br,
+																																	{ctor: '[]'},
+																																	{ctor: '[]'}),
+																																_1: {
+																																	ctor: '::',
+																																	_0: A2(
+																																		_elm_lang$html$Html$h2,
+																																		{ctor: '[]'},
+																																		{
+																																			ctor: '::',
+																																			_0: _elm_lang$html$Html$text(
+																																				A2(
+																																					_elm_lang$core$Basics_ops['++'],
+																																					'Enterd List is [',
+																																					A2(_elm_lang$core$Basics_ops['++'], model.enteredListToGetSum, ']'))),
+																																			_1: {ctor: '[]'}
+																																		}),
+																																	_1: {
+																																		ctor: '::',
+																																		_0: A2(
+																																			_elm_lang$html$Html$input,
+																																			{
+																																				ctor: '::',
+																																				_0: _elm_lang$html$Html_Attributes$placeholder('Enter comma seprated numbers'),
+																																				_1: {
+																																					ctor: '::',
+																																					_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetEnterdListForSorting),
+																																					_1: {ctor: '[]'}
+																																				}
+																																			},
+																																			{ctor: '[]'}),
+																																		_1: {
+																																			ctor: '::',
+																																			_0: A2(
+																																				_elm_lang$html$Html$button,
+																																				{
+																																					ctor: '::',
+																																					_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$SortList),
+																																					_1: {ctor: '[]'}
+																																				},
+																																				{
+																																					ctor: '::',
+																																					_0: _elm_lang$html$Html$text('Sort'),
+																																					_1: {ctor: '[]'}
+																																				}),
+																																			_1: {
+																																				ctor: '::',
+																																				_0: A2(
+																																					_elm_lang$html$Html$div,
+																																					{ctor: '[]'},
+																																					{
+																																						ctor: '::',
+																																						_0: _elm_lang$html$Html$text(
+																																							_elm_lang$core$Basics$toString(model.sortedList)),
+																																						_1: {ctor: '[]'}
+																																					}),
+																																				_1: {
+																																					ctor: '::',
+																																					_0: A2(
+																																						_elm_lang$html$Html$br,
+																																						{ctor: '[]'},
+																																						{ctor: '[]'}),
+																																					_1: {
+																																						ctor: '::',
+																																						_0: A2(
+																																							_elm_lang$html$Html$h2,
+																																							{ctor: '[]'},
+																																							{
+																																								ctor: '::',
+																																								_0: _elm_lang$html$Html$text('List is [[1],[2,3,4],[5],[6]]'),
+																																								_1: {ctor: '[]'}
+																																							}),
+																																						_1: {
+																																							ctor: '::',
+																																							_0: A2(
+																																								_elm_lang$html$Html$button,
+																																								{
+																																									ctor: '::',
+																																									_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$CombinedList),
+																																									_1: {ctor: '[]'}
+																																								},
+																																								{
+																																									ctor: '::',
+																																									_0: _elm_lang$html$Html$text('Combine List'),
+																																									_1: {ctor: '[]'}
+																																								}),
+																																							_1: {
+																																								ctor: '::',
+																																								_0: A2(
+																																									_elm_lang$html$Html$div,
+																																									{ctor: '[]'},
+																																									{
+																																										ctor: '::',
+																																										_0: _elm_lang$html$Html$text(
+																																											_elm_lang$core$Basics$toString(model.combinedFlatternList)),
+																																										_1: {ctor: '[]'}
+																																									}),
+																																								_1: {
+																																									ctor: '::',
+																																									_0: A2(
+																																										_elm_lang$html$Html$br,
+																																										{ctor: '[]'},
+																																										{ctor: '[]'}),
+																																									_1: {
+																																										ctor: '::',
+																																										_0: A2(
+																																											_elm_lang$html$Html$h2,
+																																											{ctor: '[]'},
+																																											{
+																																												ctor: '::',
+																																												_0: _elm_lang$html$Html$text('Map Two List Items [\"a\", \"c\", \"e\"]  [\"b\", \"d\", \"f\"]'),
+																																												_1: {ctor: '[]'}
+																																											}),
+																																										_1: {
+																																											ctor: '::',
+																																											_0: A2(
+																																												_elm_lang$html$Html$button,
+																																												{
+																																													ctor: '::',
+																																													_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$MapAlterNateItems),
+																																													_1: {ctor: '[]'}
+																																												},
+																																												{
+																																													ctor: '::',
+																																													_0: _elm_lang$html$Html$text('Map Alternatingly'),
+																																													_1: {ctor: '[]'}
+																																												}),
+																																											_1: {
+																																												ctor: '::',
+																																												_0: A2(
+																																													_elm_lang$html$Html$div,
+																																													{ctor: '[]'},
+																																													{
+																																														ctor: '::',
+																																														_0: _elm_lang$html$Html$text(
+																																															_elm_lang$core$Basics$toString(model.mapedAlterNateItemsList)),
+																																														_1: {ctor: '[]'}
+																																													}),
+																																												_1: {
+																																													ctor: '::',
+																																													_0: A2(
+																																														_elm_lang$html$Html$br,
+																																														{ctor: '[]'},
+																																														{ctor: '[]'}),
+																																													_1: {
+																																														ctor: '::',
+																																														_0: A2(
+																																															_elm_lang$html$Html$h2,
+																																															{ctor: '[]'},
+																																															{
+																																																ctor: '::',
+																																																_0: _elm_lang$html$Html$text('Map Two Sorted List Into SOrted List [ 1, 4, 6 ] [ 2, 3, 5 ]'),
+																																																_1: {ctor: '[]'}
+																																															}),
+																																														_1: {
+																																															ctor: '::',
+																																															_0: A2(
+																																																_elm_lang$html$Html$button,
+																																																{
+																																																	ctor: '::',
+																																																	_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$MergeTwoSortedListIntoOne),
+																																																	_1: {ctor: '[]'}
+																																																},
+																																																{
+																																																	ctor: '::',
+																																																	_0: _elm_lang$html$Html$text('Merge Two Sorted List In to One'),
+																																																	_1: {ctor: '[]'}
+																																																}),
+																																															_1: {
+																																																ctor: '::',
+																																																_0: A2(
+																																																	_elm_lang$html$Html$div,
+																																																	{ctor: '[]'},
+																																																	{
+																																																		ctor: '::',
+																																																		_0: _elm_lang$html$Html$text(
+																																																			_elm_lang$core$Basics$toString(model.mergedSortedList)),
+																																																		_1: {ctor: '[]'}
+																																																	}),
+																																																_1: {
+																																																	ctor: '::',
+																																																	_0: A2(
+																																																		_elm_lang$html$Html$br,
+																																																		{ctor: '[]'},
+																																																		{ctor: '[]'}),
+																																																	_1: {
+																																																		ctor: '::',
+																																																		_0: A2(
+																																																			_elm_lang$html$Html$h2,
+																																																			{ctor: '[]'},
+																																																			{
+																																																				ctor: '::',
+																																																				_0: _elm_lang$html$Html$text(
+																																																					A2(
+																																																						_elm_lang$core$Basics_ops['++'],
+																																																						'Rotate List Kth Times, Entered List [',
+																																																						A2(
+																																																							_elm_lang$core$Basics_ops['++'],
+																																																							model.enterdRotationList,
+																																																							A2(
+																																																								_elm_lang$core$Basics_ops['++'],
+																																																								']   Rotation Times:',
+																																																								_elm_lang$core$Basics$toString(model.rotationTimes))))),
+																																																				_1: {ctor: '[]'}
+																																																			}),
+																																																		_1: {
+																																																			ctor: '::',
+																																																			_0: A2(
+																																																				_elm_lang$html$Html$h2,
+																																																				{ctor: '[]'},
+																																																				{
+																																																					ctor: '::',
+																																																					_0: _elm_lang$html$Html$text('Swaped operation needed is (List.length - 1)^Rotation'),
+																																																					_1: {ctor: '[]'}
+																																																				}),
+																																																			_1: {
+																																																				ctor: '::',
+																																																				_0: A2(
+																																																					_elm_lang$html$Html$input,
+																																																					{
+																																																						ctor: '::',
+																																																						_0: _elm_lang$html$Html_Attributes$placeholder('Enter comma seprated number for Rotation'),
+																																																						_1: {
+																																																							ctor: '::',
+																																																							_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetRotatedList),
+																																																							_1: {ctor: '[]'}
+																																																						}
+																																																					},
+																																																					{ctor: '[]'}),
+																																																				_1: {
+																																																					ctor: '::',
+																																																					_0: A2(
+																																																						_elm_lang$html$Html$input,
+																																																						{
+																																																							ctor: '::',
+																																																							_0: _elm_lang$html$Html_Attributes$placeholder('Enter Rotation'),
+																																																							_1: {
+																																																								ctor: '::',
+																																																								_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetRotationTime),
+																																																								_1: {ctor: '[]'}
+																																																							}
+																																																						},
+																																																						{ctor: '[]'}),
+																																																					_1: {
+																																																						ctor: '::',
+																																																						_0: A2(
+																																																							_elm_lang$html$Html$button,
+																																																							{
+																																																								ctor: '::',
+																																																								_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$RotateListKthTimes),
+																																																								_1: {ctor: '[]'}
+																																																							},
+																																																							{
+																																																								ctor: '::',
+																																																								_0: _elm_lang$html$Html$text('Rotate'),
+																																																								_1: {ctor: '[]'}
+																																																							}),
+																																																						_1: {
+																																																							ctor: '::',
+																																																							_0: A2(
+																																																								_elm_lang$html$Html$div,
+																																																								{ctor: '[]'},
+																																																								{
+																																																									ctor: '::',
+																																																									_0: _elm_lang$html$Html$text(
+																																																										_elm_lang$core$Basics$toString(model.swapedList)),
+																																																									_1: {ctor: '[]'}
+																																																								}),
+																																																							_1: {
+																																																								ctor: '::',
+																																																								_0: A2(
+																																																									_elm_lang$html$Html$br,
+																																																									{ctor: '[]'},
+																																																									{ctor: '[]'}),
+																																																								_1: {
+																																																									ctor: '::',
+																																																									_0: A2(
+																																																										_elm_lang$html$Html$h2,
+																																																										{ctor: '[]'},
+																																																										{
+																																																											ctor: '::',
+																																																											_0: _elm_lang$html$Html$text('Fibonacci numbers'),
+																																																											_1: {ctor: '[]'}
+																																																										}),
+																																																									_1: {
+																																																										ctor: '::',
+																																																										_0: A2(
+																																																											_elm_lang$html$Html$input,
+																																																											{
+																																																												ctor: '::',
+																																																												_0: _elm_lang$html$Html_Attributes$placeholder('Enter Fibonacci number upto'),
+																																																												_1: {
+																																																													ctor: '::',
+																																																													_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$PrintFibonacciSeries),
+																																																													_1: {ctor: '[]'}
+																																																												}
+																																																											},
+																																																											{ctor: '[]'}),
+																																																										_1: {
+																																																											ctor: '::',
+																																																											_0: A2(
+																																																												_elm_lang$html$Html$div,
+																																																												{ctor: '[]'},
+																																																												{
+																																																													ctor: '::',
+																																																													_0: _elm_lang$html$Html$text(
+																																																														_elm_lang$core$Basics$toString(model.fibonacciSeries)),
+																																																													_1: {ctor: '[]'}
+																																																												}),
+																																																											_1: {
+																																																												ctor: '::',
+																																																												_0: A2(
+																																																													_elm_lang$html$Html$br,
+																																																													{ctor: '[]'},
+																																																													{ctor: '[]'}),
+																																																												_1: {
+																																																													ctor: '::',
+																																																													_0: A2(
+																																																														_elm_lang$html$Html$h2,
+																																																														{ctor: '[]'},
+																																																														{
+																																																															ctor: '::',
+																																																															_0: _elm_lang$html$Html$text('Print Ractangle from the given string [\"Hello\", \"World\", \"in\", \"a\", \"frame\"]'),
+																																																															_1: {ctor: '[]'}
+																																																														}),
+																																																													_1: {
+																																																														ctor: '::',
+																																																														_0: A2(
+																																																															_elm_lang$html$Html$div,
+																																																															{
+																																																																ctor: '::',
+																																																																_0: _elm_lang$html$Html_Attributes$class('ractangle-results'),
+																																																																_1: {ctor: '[]'}
+																																																															},
+																																																															A2(
+																																																																_elm_lang$core$List$map,
+																																																																_user$project$Main$printRactangle(5),
+																																																																{
+																																																																	ctor: '::',
+																																																																	_0: 'Hello',
+																																																																	_1: {
+																																																																		ctor: '::',
+																																																																		_0: 'World',
+																																																																		_1: {
+																																																																			ctor: '::',
+																																																																			_0: 'in',
+																																																																			_1: {
+																																																																				ctor: '::',
+																																																																				_0: 'a',
+																																																																				_1: {
+																																																																					ctor: '::',
+																																																																					_0: 'frame',
+																																																																					_1: {ctor: '[]'}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																})),
+																																																														_1: {
+																																																															ctor: '::',
+																																																															_0: A2(
+																																																																_elm_lang$html$Html$br,
+																																																																{ctor: '[]'},
+																																																																{ctor: '[]'}),
+																																																															_1: {
+																																																																ctor: '::',
+																																																																_0: A2(
+																																																																	_elm_lang$html$Html$h2,
+																																																																	{ctor: '[]'},
+																																																																	{
+																																																																		ctor: '::',
+																																																																		_0: _elm_lang$html$Html$text('Check Number is Armstrong or Not'),
+																																																																		_1: {ctor: '[]'}
+																																																																	}),
+																																																																_1: {
+																																																																	ctor: '::',
+																																																																	_0: A2(
+																																																																		_elm_lang$html$Html$input,
+																																																																		{
+																																																																			ctor: '::',
+																																																																			_0: _elm_lang$html$Html_Attributes$placeholder('Enter number'),
+																																																																			_1: {
+																																																																				ctor: '::',
+																																																																				_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$CheckArmstrongNumber),
+																																																																				_1: {ctor: '[]'}
+																																																																			}
+																																																																		},
+																																																																		{ctor: '[]'}),
+																																																																	_1: {
+																																																																		ctor: '::',
+																																																																		_0: A2(
+																																																																			_elm_lang$html$Html$div,
+																																																																			{ctor: '[]'},
+																																																																			{
+																																																																				ctor: '::',
+																																																																				_0: _elm_lang$html$Html$text(
+																																																																					_elm_lang$core$Basics$toString(model.isNumberArmstrong)),
+																																																																				_1: {ctor: '[]'}
+																																																																			}),
+																																																																		_1: {
+																																																																			ctor: '::',
+																																																																			_0: A2(
+																																																																				_elm_lang$html$Html$br,
+																																																																				{ctor: '[]'},
+																																																																				{ctor: '[]'}),
+																																																																			_1: {
+																																																																				ctor: '::',
+																																																																				_0: A2(
+																																																																					_elm_lang$html$Html$h2,
+																																																																					{ctor: '[]'},
+																																																																					{
+																																																																						ctor: '::',
+																																																																						_0: _elm_lang$html$Html$text(
+																																																																							A2(
+																																																																								_elm_lang$core$Basics_ops['++'],
+																																																																								'Find country capital or capital/country of ',
+																																																																								_elm_lang$core$Basics$toString(_user$project$Main$capitalCountries))),
+																																																																						_1: {ctor: '[]'}
+																																																																					}),
+																																																																				_1: {
+																																																																					ctor: '::',
+																																																																					_0: A2(
+																																																																						_elm_lang$html$Html$input,
+																																																																						{
+																																																																							ctor: '::',
+																																																																							_0: _elm_lang$html$Html_Attributes$placeholder('Enter text'),
+																																																																							_1: {
+																																																																								ctor: '::',
+																																																																								_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$FindCapitalOrCountry),
+																																																																								_1: {ctor: '[]'}
+																																																																							}
+																																																																						},
+																																																																						{ctor: '[]'}),
+																																																																					_1: {
+																																																																						ctor: '::',
+																																																																						_0: A2(
+																																																																							_elm_lang$html$Html$div,
+																																																																							{ctor: '[]'},
+																																																																							{
+																																																																								ctor: '::',
+																																																																								_0: _elm_lang$html$Html$text(
+																																																																									_elm_lang$core$Basics$toString(model.capitalOrCountry)),
+																																																																								_1: {ctor: '[]'}
+																																																																							}),
+																																																																						_1: {
+																																																																							ctor: '::',
+																																																																							_0: A2(
+																																																																								_elm_lang$html$Html$br,
+																																																																								{ctor: '[]'},
+																																																																								{ctor: '[]'}),
+																																																																							_1: {
+																																																																								ctor: '::',
+																																																																								_0: A2(
+																																																																									_elm_lang$html$Html$h2,
+																																																																									{ctor: '[]'},
+																																																																									{
+																																																																										ctor: '::',
+																																																																										_0: _elm_lang$html$Html$text('Enter number to find it\'s binary conversion'),
+																																																																										_1: {ctor: '[]'}
+																																																																									}),
+																																																																								_1: {
+																																																																									ctor: '::',
+																																																																									_0: A2(
+																																																																										_elm_lang$html$Html$input,
+																																																																										{
+																																																																											ctor: '::',
+																																																																											_0: _elm_lang$html$Html_Attributes$placeholder('Enter number'),
+																																																																											_1: {
+																																																																												ctor: '::',
+																																																																												_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$ConvertBaseToBinary),
+																																																																												_1: {ctor: '[]'}
+																																																																											}
+																																																																										},
+																																																																										{ctor: '[]'}),
+																																																																									_1: {
+																																																																										ctor: '::',
+																																																																										_0: A2(
+																																																																											_elm_lang$html$Html$div,
+																																																																											{ctor: '[]'},
+																																																																											{
+																																																																												ctor: '::',
+																																																																												_0: _elm_lang$html$Html$text(model.binaryConversion),
+																																																																												_1: {ctor: '[]'}
+																																																																											}),
+																																																																										_1: {
+																																																																											ctor: '::',
+																																																																											_0: A2(
+																																																																												_elm_lang$html$Html$br,
+																																																																												{ctor: '[]'},
+																																																																												{ctor: '[]'}),
+																																																																											_1: {ctor: '[]'}
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
+																																																																						}
+																																																																					}
+																																																																				}
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		});
+};
+var _user$project$Main$main = _elm_lang$html$Html$beginnerProgram(
+	{model: _user$project$Main$model, view: _user$project$Main$view, update: _user$project$Main$update})();
